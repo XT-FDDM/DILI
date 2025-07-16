@@ -1,0 +1,33 @@
+conda create -n cuda121_python39 python=3.9
+conda activate cuda121_python39
+conda config --remove-key channels
+conda config --show channels
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud//pytorch/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+conda config --set show_channel_urls yes
+
+conda config --set channel_priority flexible
+
+conda clean -i
+conda info
+
+conda install cudatoolkit=11.8.0 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/
+conda install cudnn=8.9.2.26 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/
+
+conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 cudatoolkit=12.1
+conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 cudatoolkit=11.8 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/
+conda install pytorch torchvision torchaudio cudatoolkit=11.8 -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/
+conda install pytorch torchvision torchaudio pytorch-cuda
+
+conda install -c rusty1s pytorch-geometric
+# conda install pytorch-geometric
+# conda install pyg -c pyg -c conda-forge
+# conda install pyg -c pyg
+# conda install pyg
